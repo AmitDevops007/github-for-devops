@@ -1,32 +1,3 @@
-{
-  "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Template to add a lifecycle policy to an existing S3 bucket for specific prefixes.",
-  "Resources": {
-    "DevOpsBucketLifecyclePolicy": {
-      "Type": "AWS::S3::Bucket",
-      "Properties": {
-        "BucketName": "devops-bucket-d",
-        "LifecycleConfiguration": {
-          "Rules": [
-            {
-              "Id": "DeleteTest1FilesAfter7Days",
-              "Status": "Enabled",
-              "Filter": {
-                "Prefix": "Devops/test1/"
-              },
-              "NoncurrentVersionExpirationInDays": 7
-            },
-            {
-              "Id": "DeleteTest2FilesAfter7Days",
-              "Status": "Enabled",
-              "Filter": {
-                "Prefix": "Devops/test2/"
-              },
-              "NoncurrentVersionExpirationInDays": 7
-            }
-          ]
-        }
-      }
-    }
-  }
-}
+template-file-path: lifecycle_policy_7days.json
+parameters: {}
+tags: {}
